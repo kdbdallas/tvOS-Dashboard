@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="AppleTV_Icons/AppStore/App_Store_1280x768.png" alt="KDB Dashboard" width="480">
+  <img src="https://port21.com/assets/KDBDashboard/KDBDashboard1.png" alt="KDB Dashboard" width="480">
 </p>
 
 <h1 align="center">KDB Dashboard</h1>
