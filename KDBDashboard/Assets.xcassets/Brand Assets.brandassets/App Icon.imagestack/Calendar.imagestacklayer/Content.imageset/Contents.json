@@ -1,0 +1,18 @@
+{
+  "images" : [
+    {
+      "filename" : "03_Calendar_400x240.png",
+      "idiom" : "tv",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "03_Calendar_800x480.png",
+      "idiom" : "tv",
+      "scale" : "2x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

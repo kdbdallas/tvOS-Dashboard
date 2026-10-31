@@ -1,0 +1,68 @@
+KDB Dashboard Privacy Policy
+Last updated: October 27, 2026
+
+KDB Dashboard ("the App") is an Apple TV dashboard that shows your Google and iCloud calendars, a slideshow from your photo library, and the weather for the zip codes you choose. This Privacy Policy explains how the App handles your information. The short version: we don't collect any of it. Your information goes only between your Apple TV and Apple or Google, and never to us.
+
+INFORMATION WE DO NOT COLLECT
+
+KDB Dashboard does not collect, store, transmit, or share any personal data or usage data with us. Specifically, the App:
+
+• Does not require an account, login, or sign-up with us
+• Does not send any information about you or your device to us, and we do not operate any servers for the App
+• Does not use analytics, advertising, or tracking technologies
+• Does not use any third-party software development kits (SDKs)
+• Does not use Location Services; weather is based only on the zip codes you enter
+• Does not use cookies
+• Does not sell, rent, or share your information with anyone
+
+PHOTOS
+
+The App asks for permission to access your photo library so it can show a rotating slideshow from an album you choose. It reads the list of your albums and the photos in the selected album, and displays them on your TV. If a photo is stored in iCloud Photos, Apple downloads it to your Apple TV for display. The App only reads your photos; it never changes, uploads, or sends them anywhere. You can turn off photo access at any time in the privacy settings of your Apple TV's Settings app.
+
+WEATHER
+
+To show the weather, the App sends the zip codes you enter to Apple to look up their locations, then requests the weather for those locations from Apple's weather service (Apple Weather, through WeatherKit). These requests go directly from your Apple TV to Apple and are handled under Apple's Privacy Policy (apple.com/legal/privacy).
+
+GOOGLE CALENDAR
+
+If you choose to connect a Google account, the App uses Google's sign-in for TVs: it shows a code that you enter at google.com/device on another device. The App never sees your Google password. It requests read-only access to your calendar, so it can view your events but cannot create, change, or delete them.
+
+Once connected, the App downloads events from your primary Google Calendar for a window of a few weeks around the current month, directly from Google's servers, and displays them on your TV. Your events are not saved by the App or sent anywhere else. Google handles these requests under the Google Privacy Policy (policies.google.com/privacy).
+
+KDB Dashboard's use of information received from Google APIs adheres to the Google API Services User Data Policy (developers.google.com/terms/api-services-user-data-policy), including the Limited Use requirements. Your Google Calendar data is used only to display your events on your TV. It is not transferred to anyone, used for advertising, or read by any person.
+
+You can disconnect your Google account at any time using the Disconnect button in the App's settings, or remove the App's access from your Google Account permissions (myaccount.google.com/permissions).
+
+ICLOUD CALENDAR
+
+If you choose to connect an iCloud calendar, you enter your Apple ID email address and an app-specific password that you create at appleid.apple.com. The App does not ask for your main Apple ID password. It uses these credentials only to connect directly to Apple's iCloud calendar servers (caldav.icloud.com) over a secure connection, read the list of your calendars, and download events from them. The App only reads your calendars; it never changes them. Your events are not saved by the App or sent anywhere else. Apple handles these requests under Apple's Privacy Policy (apple.com/legal/privacy).
+
+You can disconnect iCloud at any time using the Disconnect button in the App's settings, and you can revoke the app-specific password at any time at appleid.apple.com.
+
+INFORMATION STORED ON YOUR APPLE TV
+
+To keep working between launches, the App saves the following on your Apple TV:
+
+• Your settings: the selected photo album, your weather zip codes, and the photo rotation interval
+• If you connect Google Calendar, the sign-in tokens Google issues to the App
+• If you connect iCloud Calendar, your Apple ID email address, your app-specific password, and the list of your iCloud calendars
+
+The Google sign-in tokens, your Apple ID email address, and your app-specific password are kept in the Apple TV's Keychain, the encrypted storage tvOS provides for passwords and other sensitive data, and are stored only on that Apple TV.
+
+This information stays on your Apple TV and is never sent to us. Using Disconnect removes the saved credentials for that account. Deleting the App removes its settings, but tvOS can keep Keychain items after an app is deleted, so use Disconnect first if you want your credentials removed right away. If you install the App again, it clears any credentials left over from a previous install.
+
+CHILDREN'S PRIVACY
+
+Because KDB Dashboard does not collect any information from any user, it does not knowingly collect information from children under 13 or any other age.
+
+THIRD-PARTY SERVICES
+
+KDB Dashboard does not integrate with any third-party analytics, advertising, crash-reporting, or other services. The only outside services the App contacts are Apple (for Photos, weather, location lookup of your zip codes, and iCloud Calendar) and Google (for Google Calendar), and only as described above. As with any website you visit, these companies receive the network information that comes with those requests, such as your IP address.
+
+CHANGES TO THIS POLICY
+
+If this Privacy Policy is ever updated, the revised version will be posted here and at port21.com/KDBDashboard-PRIVACY.html with an updated "Last updated" date.
+
+CONTACT US
+
+If you have any questions about this Privacy Policy, email us at contact@port21.com.

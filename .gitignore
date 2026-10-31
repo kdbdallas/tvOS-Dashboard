@@ -1,0 +1,23 @@
+# macOS
+.DS_Store
+
+# Xcode
+xcuserdata/
+DerivedData/
+build/
+*.xcuserstate
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Local secrets
+Config/Secrets.xcconfig
+
+# Marketing captures taken from a personal account (contain real calendar data)
+Screenshots/
+AppPreviews/
+
+# Local tooling
+.claude/

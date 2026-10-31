@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "04_Weather.png",
+      "idiom" : "tv"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

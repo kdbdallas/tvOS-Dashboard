@@ -1,0 +1,10 @@
+// Shared build settings for the KDBDashboard target.
+//
+// Google OAuth credentials are not checked in. Copy Secrets.example.xcconfig
+// to Secrets.xcconfig (gitignored) and fill in your own values. Without it the
+// app still builds and runs, but Google Calendar sign-in is disabled.
+
+GOOGLE_CLIENT_ID =
+GOOGLE_CLIENT_SECRET =
+
+#include? "Secrets.xcconfig"

@@ -1,0 +1,461 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3DBB47FF82E4433D816142B6 /* DetailedWeatherHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8DAFEDB6064687AEFD9196 /* DetailedWeatherHUD.swift */; };
+		E8000001298F000000000001 /* KDBDashboardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8000002298F000000000001 /* KDBDashboardApp.swift */; };
+		E8000003298F000000000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8000004298F000000000002 /* ContentView.swift */; };
+		E8000005298F000000000003 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8000006298F000000000003 /* CalendarView.swift */; };
+		E8000007298F000000000004 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8000008298F000000000004 /* PhotoView.swift */; };
+		E8000009298F000000000005 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E800000A298F000000000005 /* WeatherView.swift */; };
+		E800000B298F000000000006 /* GoogleCalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E800000C298F000000000006 /* GoogleCalendarService.swift */; };
+		E800000D298F000000000007 /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E800000E298F000000000007 /* PhotoService.swift */; };
+		E800000F298F000000000008 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8000010298F000000000008 /* WeatherService.swift */; };
+		E8000011298F000000000009 /* CalendarEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8000012298F000000000009 /* CalendarEvent.swift */; };
+		E8000013298F00000000000A /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8000014298F00000000000A /* WeatherData.swift */; };
+		E8000029298F00000000001F /* ICloudCalendarModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E800002A298F000000000020 /* ICloudCalendarModels.swift */; };
+		E800002B298F000000000021 /* ICloudCalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E800002C298F000000000022 /* ICloudCalendarService.swift */; };
+		E800002D298F000000000023 /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E800002E298F000000000024 /* CalendarManager.swift */; };
+		E800002F298F000000000025 /* ICloudSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8000030298F000000000026 /* ICloudSignInView.swift */; };
+		E8000031298F000000000027 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8000032298F000000000028 /* SettingsManager.swift */; };
+		E8000033298F000000000029 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8000034298F00000000002A /* SettingsView.swift */; };
+		E8000035298F00000000002B /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8000036298F00000000002C /* OnboardingView.swift */; };
+		E8000037298F00000000002D /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8000038298F00000000002E /* KeychainStore.swift */; };
+		E8000039298F00000000002F /* GoogleSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E800003A298F000000000030 /* GoogleSignInView.swift */; };
+		E8ASSETS0000000000000001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8ASSETS0000000000000002 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3C8DAFEDB6064687AEFD9196 /* DetailedWeatherHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedWeatherHUD.swift; sourceTree = "<group>"; };
+		E8000002298F000000000001 /* KDBDashboardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDBDashboardApp.swift; sourceTree = "<group>"; };
+		E8000004298F000000000002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E8000006298F000000000003 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		E8000008298F000000000004 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
+		E800000A298F000000000005 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
+		E800000C298F000000000006 /* GoogleCalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleCalendarService.swift; sourceTree = "<group>"; };
+		E800000E298F000000000007 /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoService.swift; sourceTree = "<group>"; };
+		E8000010298F000000000008 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		E8000012298F000000000009 /* CalendarEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEvent.swift; sourceTree = "<group>"; };
+		E8000014298F00000000000A /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
+		E8000015298F00000000000B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8000016298F00000000000C /* KDBDashboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KDBDashboard.entitlements; sourceTree = "<group>"; };
+		E8000017298F00000000000D /* KDBDashboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KDBDashboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E800002A298F000000000020 /* ICloudCalendarModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudCalendarModels.swift; sourceTree = "<group>"; };
+		E800002C298F000000000022 /* ICloudCalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudCalendarService.swift; sourceTree = "<group>"; };
+		E800002E298F000000000024 /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
+		E8000030298F000000000026 /* ICloudSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudSignInView.swift; sourceTree = "<group>"; };
+		E8000032298F000000000028 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
+		E8000034298F00000000002A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		E8000036298F00000000002C /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		E8000038298F00000000002E /* KeychainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStore.swift; sourceTree = "<group>"; };
+		E800003A298F000000000030 /* GoogleSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInView.swift; sourceTree = "<group>"; };
+		E8ASSETS0000000000000002 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E800003C298F000000000032 /* Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E8000018298F00000000000E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E800003B298F000000000031 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				E800003C298F000000000032 /* Base.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		E8000019298F00000000000F /* KDBDashboard */ = {
+			isa = PBXGroup;
+			children = (
+				E8000002298F000000000001 /* KDBDashboardApp.swift */,
+				E8000004298F000000000002 /* ContentView.swift */,
+				E800001A298F000000000010 /* Views */,
+				E800001B298F000000000011 /* Services */,
+				E800001C298F000000000012 /* Models */,
+				E8ASSETS0000000000000002 /* Assets.xcassets */,
+				E8000015298F00000000000B /* Info.plist */,
+				E8000016298F00000000000C /* KDBDashboard.entitlements */,
+			);
+			path = KDBDashboard;
+			sourceTree = "<group>";
+		};
+		E800001A298F000000000010 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E8000006298F000000000003 /* CalendarView.swift */,
+				3C8DAFEDB6064687AEFD9196 /* DetailedWeatherHUD.swift */,
+				E800003A298F000000000030 /* GoogleSignInView.swift */,
+				E8000030298F000000000026 /* ICloudSignInView.swift */,
+				E8000036298F00000000002C /* OnboardingView.swift */,
+				E8000008298F000000000004 /* PhotoView.swift */,
+				E8000034298F00000000002A /* SettingsView.swift */,
+				E800000A298F000000000005 /* WeatherView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E800001B298F000000000011 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E800002E298F000000000024 /* CalendarManager.swift */,
+				E800000C298F000000000006 /* GoogleCalendarService.swift */,
+				E800002C298F000000000022 /* ICloudCalendarService.swift */,
+				E8000038298F00000000002E /* KeychainStore.swift */,
+				E800000E298F000000000007 /* PhotoService.swift */,
+				E8000032298F000000000028 /* SettingsManager.swift */,
+				E8000010298F000000000008 /* WeatherService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E800001C298F000000000012 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E8000012298F000000000009 /* CalendarEvent.swift */,
+				E800002A298F000000000020 /* ICloudCalendarModels.swift */,
+				E8000014298F00000000000A /* WeatherData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E800001D298F000000000013 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E8000017298F00000000000D /* KDBDashboard.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E800001E298F000000000014 = {
+			isa = PBXGroup;
+			children = (
+				E8000019298F00000000000F /* KDBDashboard */,
+				E800003B298F000000000031 /* Config */,
+				E800001D298F000000000013 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E800001F298F000000000015 /* KDBDashboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E8000020298F000000000016 /* Build configuration list for PBXNativeTarget "KDBDashboard" */;
+			buildPhases = (
+				E8000021298F000000000017 /* Sources */,
+				E8000018298F00000000000E /* Frameworks */,
+				E8000022298F000000000018 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KDBDashboard;
+			productName = TVWidget;
+			productReference = E8000017298F00000000000D /* KDBDashboard.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E8000023298F000000000019 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 2630;
+				TargetAttributes = {
+					E800001F298F000000000015 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = E8000024298F00000000001A /* Build configuration list for PBXProject "KDBDashboard" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E800001E298F000000000014;
+			productRefGroup = E800001D298F000000000013 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E800001F298F000000000015 /* KDBDashboard */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E8000022298F000000000018 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E8ASSETS0000000000000001 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E8000021298F000000000017 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DBB47FF82E4433D816142B6 /* DetailedWeatherHUD.swift in Sources */,
+				E8000001298F000000000001 /* KDBDashboardApp.swift in Sources */,
+				E8000003298F000000000002 /* ContentView.swift in Sources */,
+				E8000005298F000000000003 /* CalendarView.swift in Sources */,
+				E8000007298F000000000004 /* PhotoView.swift in Sources */,
+				E8000009298F000000000005 /* WeatherView.swift in Sources */,
+				E800000B298F000000000006 /* GoogleCalendarService.swift in Sources */,
+				E800000D298F000000000007 /* PhotoService.swift in Sources */,
+				E800000F298F000000000008 /* WeatherService.swift in Sources */,
+				E8000011298F000000000009 /* CalendarEvent.swift in Sources */,
+				E8000013298F00000000000A /* WeatherData.swift in Sources */,
+				E8000029298F00000000001F /* ICloudCalendarModels.swift in Sources */,
+				E800002B298F000000000021 /* ICloudCalendarService.swift in Sources */,
+				E800002D298F000000000023 /* CalendarManager.swift in Sources */,
+				E8000039298F00000000002F /* GoogleSignInView.swift in Sources */,
+				E800002F298F000000000025 /* ICloudSignInView.swift in Sources */,
+				E8000031298F000000000027 /* SettingsManager.swift in Sources */,
+				E8000033298F000000000029 /* SettingsView.swift in Sources */,
+				E8000035298F00000000002B /* OnboardingView.swift in Sources */,
+				E8000037298F00000000002D /* KeychainStore.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		E8000025298F00000000001B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = B22K597J7Z;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = appletvos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TVOS_DEPLOYMENT_TARGET = 17.0;
+			};
+			name = Debug;
+		};
+		E8000026298F00000000001C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = B22K597J7Z;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = appletvos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				TVOS_DEPLOYMENT_TARGET = 17.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E8000027298F00000000001D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E800003C298F000000000032 /* Base.xcconfig */;
+			buildSettings = {
+				APP_SHORTCUTS_ENABLE_FLEXIBLE_MATCHING = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "Brand Assets";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = KDBDashboard/KDBDashboard.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B22K597J7Z;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KDBDashboard/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = KDBDashboard;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "KDBDashboard needs access to your photos to display a rotating slideshow from your iCloud Photo Library.";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.port21.KDBDashboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Debug;
+		};
+		E8000028298F00000000001E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E800003C298F000000000032 /* Base.xcconfig */;
+			buildSettings = {
+				APP_SHORTCUTS_ENABLE_FLEXIBLE_MATCHING = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "Brand Assets";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = KDBDashboard/KDBDashboard.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B22K597J7Z;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KDBDashboard/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = KDBDashboard;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "KDBDashboard needs access to your photos to display a rotating slideshow from your iCloud Photo Library.";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.port21.KDBDashboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E8000020298F000000000016 /* Build configuration list for PBXNativeTarget "KDBDashboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E8000027298F00000000001D /* Debug */,
+				E8000028298F00000000001E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E8000024298F00000000001A /* Build configuration list for PBXProject "KDBDashboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E8000025298F00000000001B /* Debug */,
+				E8000026298F00000000001C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E8000023298F000000000019 /* Project object */;
+}
