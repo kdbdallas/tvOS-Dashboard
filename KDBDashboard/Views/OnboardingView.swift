@@ -17,8 +17,17 @@ struct OnboardingView: View {
     @State private var editingZipCode1 = false
     @State private var editingZipCode2 = false
     @State private var tempZipInput = ""
+    @FocusState private var albumStepFocus: AlbumStepFocus?
+
+    private enum AlbumStepFocus: Hashable {
+        case album(String)
+        case index(String)
+        case next
+    }
 
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.openURL) private var openURL
+    @Environment(\.scenePhase) private var scenePhase
 
     private let totalSteps = 3
 
@@ -56,7 +65,7 @@ struct OnboardingView: View {
                 // Content based on current step
                 if currentStep == 0 {
                     photoAlbumStep
-                        .frame(height: 600)
+                        .frame(height: 750)
                 } else if currentStep == 1 {
                     weatherLocationStep
                 } else {
@@ -66,26 +75,56 @@ struct OnboardingView: View {
                 Spacer()
             }
         }
+        .onChange(of: scenePhase) { _, phase in
+            // The user may have granted photo access in Settings while we were backgrounded
+            if phase == .active {
+                Task { await photoService.refreshAuthorizationStatus() }
+            }
+        }
     }
 
     private var photoAlbumStep: some View {
-        ScrollView {
-            VStack(spacing: 24) {
-                Text("Step 1: Choose Your Photo Album")
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                    .foregroundColor(.white)
+        VStack(spacing: 24) {
+            Text("Step 1: Choose Your Photo Album")
+                .font(.title2)
+                .fontWeight(.semibold)
+                .foregroundColor(.white)
 
-                if photoService.authorizationStatus == .authorized || photoService.authorizationStatus == .limited {
-                    if photoService.availableAlbums.isEmpty {
-                        HStack {
-                            ProgressView()
-                            Text("Loading albums...")
-                                .foregroundColor(.white.opacity(0.7))
+            if photoService.authorizationStatus == .authorized || photoService.authorizationStatus == .limited {
+                if photoService.availableAlbums.isEmpty {
+                    HStack {
+                        ProgressView()
+                        Text("Loading albums...")
+                            .foregroundColor(.white.opacity(0.7))
+                    }
+                    Spacer()
+                } else {
+                    // Only the album list scrolls; Next stays pinned below it so it's always visible
+                    ScrollViewReader { proxy in
+                        HStack(spacing: 0) {
+                            ScrollView {
+                                albumButtons
+                                    .padding(.vertical, 20)
+                            }
+                            .focusSection()
+
+                            if albumIndexSections.count > 1 {
+                                albumIndexStrip
+                                    .focusSection()
+                            }
                         }
-                    } else {
-                        albumButtons
+                        .onChange(of: albumStepFocus) { _, focus in
+                            // Moving up/down the index jumps the list to that letter's first album
+                            if case .index(let key) = focus, let id = firstAlbumID(forIndexKey: key) {
+                                withAnimation(.easeInOut(duration: 0.2)) {
+                                    proxy.scrollTo(id, anchor: .top)
+                                }
+                            }
+                        }
+                    }
 
+                    // Full-width focus section so pressing down from anywhere in the list reaches Next
+                    HStack {
                         Button("Next") {
                             withAnimation {
                                 currentStep += 1
@@ -93,16 +132,26 @@ struct OnboardingView: View {
                         }
                         .buttonStyle(.borderedProminent)
                         .disabled(selectedAlbum == nil)
-                        .padding(.top, 40)
+                        .focused($albumStepFocus, equals: .next)
+                        .onMoveCommand { direction in
+                            // Return to the selected album rather than wherever the focus engine lands
+                            if direction == .up, let id = selectedAlbum?.id {
+                                albumStepFocus = .album(id)
+                            }
+                        }
                     }
-                } else {
+                    .frame(maxWidth: .infinity)
+                    .focusSection()
+                }
+            } else {
+                ScrollView {
                     photoAuthorizationPrompt
                 }
             }
-            .padding(.horizontal, 60)
-            .padding(.top, 20)
-            .padding(.bottom, 60)
         }
+        .padding(.horizontal, 60)
+        .padding(.top, 20)
+        .padding(.bottom, 20)
         .frame(maxWidth: 1000)
     }
 
@@ -113,6 +162,11 @@ struct OnboardingView: View {
 
                 Button(action: {
                     selectedAlbum = album
+                    // Next is disabled until an album is selected, so wait a run loop
+                    // for it to become enabled before moving focus to it
+                    DispatchQueue.main.async {
+                        albumStepFocus = .next
+                    }
                 }) {
                     HStack(spacing: 16) {
                         VStack(alignment: .leading, spacing: 4) {
@@ -129,19 +183,83 @@ struct OnboardingView: View {
                                 .font(.system(size: 32))
                         }
                     }
-                    .padding(20)
+                    .padding(8)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .background(isSelected ? Color.blue : Color.gray.opacity(0.3))
                     .cornerRadius(12)
                 }
                 .buttonStyle(.plain)
+                .focused($albumStepFocus, equals: .album(album.id))
+                .id(album.id)
             }
         }
         .padding(.horizontal, 40)
     }
 
+    // MARK: - Album index strip
+
+    /// Index keys in list order, one per group of albums sharing a first letter ("#" for non-letters)
+    private var albumIndexSections: [String] {
+        var seen = Set<String>()
+        return photoService.availableAlbums
+            .map { Self.indexKey(for: $0.name) }
+            .filter { seen.insert($0).inserted }
+    }
+
+    private func firstAlbumID(forIndexKey key: String) -> String? {
+        photoService.availableAlbums.first { Self.indexKey(for: $0.name) == key }?.id
+    }
+
+    private static func indexKey(for name: String) -> String {
+        guard let first = name.trimmingCharacters(in: .whitespacesAndNewlines).first else { return "#" }
+        let folded = String(first)
+            .folding(options: [.diacriticInsensitive, .caseInsensitive], locale: .current)
+            .uppercased()
+        return folded.first?.isLetter == true ? folded : "#"
+    }
+
+    /// The index key of the album currently focused in the list, used to highlight its letter
+    private var focusedAlbumIndexKey: String? {
+        guard case .album(let id) = albumStepFocus,
+              let album = photoService.availableAlbums.first(where: { $0.id == id }) else { return nil }
+        return Self.indexKey(for: album.name)
+    }
+
+    private var albumIndexStrip: some View {
+        VStack(spacing: 2) {
+            ForEach(albumIndexSections, id: \.self) { key in
+                Button {
+                    focusFirstAlbum(forIndexKey: key)
+                } label: {
+                    Text(key)
+                }
+                .buttonStyle(IndexLetterButtonStyle(isCurrentSection: focusedAlbumIndexKey == key))
+                .focused($albumStepFocus, equals: .index(key))
+                .onMoveCommand { direction in
+                    // Leaving the strip lands on the letter's first album, not the geometrically nearest one
+                    if direction == .left {
+                        focusFirstAlbum(forIndexKey: key)
+                    }
+                }
+            }
+        }
+        .frame(maxHeight: .infinity)
+        .padding(.vertical, 20)
+    }
+
+    private func focusFirstAlbum(forIndexKey key: String) {
+        if let id = firstAlbumID(forIndexKey: key) {
+            albumStepFocus = .album(id)
+        }
+    }
+
     private var photoAuthorizationPrompt: some View {
-        VStack(spacing: 40) {
+        // Once access is denied the system will never show the prompt again, so
+        // requestAuthorization() returns immediately and we must send the user to Settings
+        let isDenied = photoService.authorizationStatus == .denied
+        let isRestricted = photoService.authorizationStatus == .restricted
+
+        return VStack(spacing: 40) {
             VStack(spacing: 20) {
                 Image(systemName: "photo.on.rectangle.angled")
                     .font(.system(size: 60))
@@ -151,28 +269,33 @@ struct OnboardingView: View {
                     .font(.headline)
                     .foregroundColor(.white)
 
-                Text("KDB Dashboard needs access to your photo library to display your photos")
-                    .font(.callout)
-                    .foregroundColor(.white.opacity(0.7))
-                    .multilineTextAlignment(.center)
-                    .fixedSize(horizontal: false, vertical: true)
+                Text(
+                    isDenied
+                        ? "Photo access was turned off. To show your photos, open Settings, choose Photos, and allow access for KDB Dashboard."
+                        : isRestricted
+                            ? "Photo access is restricted on this Apple TV, possibly by Screen Time or a device profile."
+                            : "KDB Dashboard needs access to your photo library to display your photos"
+                )
+                .font(.callout)
+                .foregroundColor(.white.opacity(0.7))
+                .multilineTextAlignment(.center)
+                .fixedSize(horizontal: false, vertical: true)
             }
 
-            VStack(spacing: 20) {
-                Button("Grant Access") {
+            if isDenied || isRestricted {
+                Button("Open Settings") {
+                    if let url = URL(string: UIApplication.openSettingsURLString) {
+                        openURL(url)
+                    }
+                }
+                .buttonStyle(.borderedProminent)
+            } else {
+                Button("Continue") {
                     Task {
                         await photoService.requestAuthorization()
                     }
                 }
                 .buttonStyle(.borderedProminent)
-
-                Button("Next") {
-                    withAnimation {
-                        currentStep += 1
-                    }
-                }
-                .buttonStyle(.borderedProminent)
-                .disabled(selectedAlbum == nil)
             }
         }
         .frame(maxWidth: .infinity)
@@ -411,6 +534,32 @@ struct OnboardingZipCodeButtonContent: View {
         .background(backgroundColor)
         .cornerRadius(16)
         .frame(minWidth: 600, maxWidth: 700)
+    }
+}
+
+/// Compact focus style for the album A–Z index; the system lift effect is too large for single letters
+private struct IndexLetterButtonStyle: ButtonStyle {
+    let isCurrentSection: Bool
+
+    func makeBody(configuration: Configuration) -> some View {
+        IndexLetterLabel(configuration: configuration, isCurrentSection: isCurrentSection)
+    }
+
+    private struct IndexLetterLabel: View {
+        let configuration: ButtonStyleConfiguration
+        let isCurrentSection: Bool
+        @Environment(\.isFocused) private var isFocused
+
+        var body: some View {
+            configuration.label
+                .font(.system(size: 22, weight: .semibold))
+                .minimumScaleFactor(0.6)
+                .foregroundColor(isFocused ? .black : (isCurrentSection ? .blue : .white.opacity(0.6)))
+                .frame(width: 44, height: 30)
+                .background(Circle().fill(isFocused ? Color.white : Color.clear))
+                .scaleEffect(isFocused ? 1.3 : (configuration.isPressed ? 0.9 : 1))
+                .animation(.easeOut(duration: 0.15), value: isFocused)
+        }
     }
 }
 

@@ -362,8 +362,10 @@ struct CalendarView: View {
                     }
                 } label: {
                     HStack(spacing: 10) {
-                        Image(systemName: "g.circle.fill")
-                            .foregroundColor(.orange)
+                        Image("GoogleG40")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 40, height: 40)
                         Text(calendarManager.googleService.isAuthenticated ? "Google Calendar Connected" : "Sign In with Google")
                             .foregroundColor(.white)
                         if calendarManager.googleService.isAuthenticated {

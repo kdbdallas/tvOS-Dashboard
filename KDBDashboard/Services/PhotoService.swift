@@ -38,6 +38,18 @@ class PhotoService: ObservableObject {
         authorizationStatus = PHPhotoLibrary.authorizationStatus(for: .readWrite)
     }
 
+    /// Re-reads the authorization status (e.g. after returning from Settings) and loads
+    /// albums if access has since been granted
+    func refreshAuthorizationStatus() async {
+        let wasAuthorized = authorizationStatus == .authorized || authorizationStatus == .limited
+        checkAuthorizationStatus()
+        let isAuthorized = authorizationStatus == .authorized || authorizationStatus == .limited
+
+        if isAuthorized && (!wasAuthorized || availableAlbums.isEmpty) {
+            await fetchAvailableAlbums()
+        }
+    }
+
     /// Requests access to the photo library
     func requestAuthorization() async {
         let status = await PHPhotoLibrary.requestAuthorization(for: .readWrite)
@@ -99,7 +111,8 @@ class PhotoService: ObservableObject {
         }
 
         // Sort albums by name
-        availableAlbums = albums.sorted { $0.name < $1.name }
+        // Case-insensitive so the onboarding A–Z index groups albums contiguously
+        availableAlbums = albums.sorted { $0.name.localizedStandardCompare($1.name) == .orderedAscending }
         isLoading = false
     }
 
